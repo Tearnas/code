@@ -5,7 +5,6 @@ import torch.nn as nn
 class ActorNet(nn.Module):
     """ Actor Network """
     def __init__(self, state_num, action_num, hidden1=256, hidden2=256, hidden3=256, lstm_hidden=128, num_layers=1):
-
         super(ActorNet, self).__init__()
         self.lstm_hidden = lstm_hidden
         self.num_layers = num_layers
@@ -22,7 +21,7 @@ class ActorNet(nn.Module):
         x = self.relu(self.fc2(x))
         x = self.relu(self.fc3(x))
         out = self.sigmoid(self.fc4(x))
-
+        #print(out.shape)
 
         return out
 
